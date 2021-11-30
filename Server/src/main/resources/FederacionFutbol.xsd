@@ -1,0 +1,65 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://espe.edu.ec/arqsoftware/examen/zuniga/server/ws"
+           targetNamespace="http://espe.edu.ec/arqsoftware/examen/zuniga/server/ws" elementFormDefault="qualified">
+
+    <xs:element name="obtenerPartidosRequest">
+        <xs:complexType>
+            <xs:sequence />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenerPartidosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PartidosRS" type="tns:PartidoRS" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenerLocalidadesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codigoPartido" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenerLocalidadesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="LocalidadS" type="tns:LocalidadRS" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="compraRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codigoPartido" type="xs:string"/>
+                <xs:element name="codigoLocalidad" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="compraResponse">
+        <xs:complexType>
+            <xs:sequence />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="LocalidadRS">
+        <xs:sequence>
+            <xs:element name="codigo" type="xs:string"/>
+            <xs:element name="precio" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PartidoRS">
+        <xs:sequence>
+            <xs:element name="codigo" type="xs:string"/>
+            <xs:element name="equipoLocal" type="xs:string"/>
+            <xs:element name="equipoVisita" type="xs:string"/>
+            <xs:element name="fecha" type="xs:dateTime"/>
+            <xs:element name="lugar" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

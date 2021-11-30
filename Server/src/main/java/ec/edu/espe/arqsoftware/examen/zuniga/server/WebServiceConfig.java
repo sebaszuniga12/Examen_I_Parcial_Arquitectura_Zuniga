@@ -25,15 +25,15 @@ public class WebServiceConfig {
     @Bean(name = "cuotaPrestamo")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("CuotaPrestamoPort");
+        wsdl11Definition.setPortTypeName("PartidoPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://espe.edu.ec/arqsoftware/examen/zuniga/ws");
+        wsdl11Definition.setTargetNamespace("http://espe.edu.ec/arqsoftware/examen/zuniga/server/ws");
         wsdl11Definition.setSchema(countriesSchema);
         return wsdl11Definition;
     }
 
     @Bean
     public XsdSchema countriesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("CuotaPrestamo.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("FederacionFutbol.xsd"));
     }
 }
